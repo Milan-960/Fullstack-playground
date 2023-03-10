@@ -6,7 +6,7 @@ export const Test = () => {
   console.log(data);
 
   useEffect(() => {
-    fetch("http://localhost:2002/test")
+    fetch("https://fullstack-playground.vercel.app/demo")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
