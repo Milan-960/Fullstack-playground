@@ -56,6 +56,8 @@ import swaggerJsDoc from "swagger-jsdoc";
 import data from "./src/data.js";
 import img from "./src/img.js";
 
+import demoRouter from "./src/Routes/demo.js"; // assuming that your postRouter file is named postRouter.js
+
 const app = express();
 app.use(bodyParser.json()); // to use body object in requests
 const PORT = process.env.PORT || 2002;
@@ -118,10 +120,15 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+//* we are using the same data here!
+
 // Route for the data
 app.get("/posts", (req, res) => {
   res.send(data);
 });
+
+// Route for the demo data
+app.use("/demo", demoRouter);
 
 // Route for the images we have defined /img patch in img.js
 app.use("/img", img);

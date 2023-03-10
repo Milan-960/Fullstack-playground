@@ -1,8 +1,25 @@
 import express from "express";
 import bodyParser from "body-parser";
+import multer from "multer";
+import path from "path";
 import data from "../data.js";
 
 const postRouter = express.Router();
+
+// Set up storage for uploaded files
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const extension = path.extname(file.originalname);
+    cb(null, file.fieldname + "-" + uniqueSuffix + extension);
+  },
+});
+
+// Set up multer middleware to handle file uploads
+const upload = multer({ storage: storage });
 
 postRouter.use(bodyParser.json()); // to use body object in requests
 
@@ -16,6 +33,7 @@ postRouter.use(bodyParser.json()); // to use body object in requests
  *         - userId
  *         - title
  *         - body
+ *         - img
  *       properties:
  *         id:
  *           type: integer
@@ -28,12 +46,16 @@ postRouter.use(bodyParser.json()); // to use body object in requests
  *           description: title of post
  *         body:
  *           type: string
- *           descripton: content of post
+ *           description: content of post
+ *         img:
+ *           type: string
+ *           description: URL of the image associated with the post
  *       example:
  *         id: 1
  *         userId: 1
  *         title: my title
  *         body: my article
+ *         img: https://example.com/image.jpg
  *
  */
 
@@ -89,14 +111,25 @@ postRouter.get("/", (req, res) => {
  *         description: post can not be found
  */
 
+// postRouter.get("/:id", (req, res) => {
+//   const post = data.find((post) => post.id === +req.params.id);
+
+//   if (!post) {
+//     res.sendStatus(404);
+//   } else {
+//     res.send(post);
+//   }
+// });
+
 postRouter.get("/:id", (req, res) => {
-  const post = data.find((post) => post.id === +req.params.id);
+  const id = req.params.id;
+  const post = data.find((post) => post.id == id);
 
   if (!post) {
-    res.sendStatus(404);
+    return res.status(404).send("Post not found");
   }
 
-  res.send(post);
+  return res.json(post);
 });
 
 /**
