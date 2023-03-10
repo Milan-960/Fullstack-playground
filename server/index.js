@@ -53,6 +53,16 @@ import img from "./src/img.js";
 const app = express();
 const PORT = process.env.PORT || 2002;
 
+// This code adds the necessary CORS headers to allow any domain to make requests to your server.
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 // Route for the root path
 app.get("/", (req, res) => {
   res.send("Hello World!");

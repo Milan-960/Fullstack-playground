@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
 
 export const Test = () => {
-  const [data, setData] = useState([]);
+  const [datas, setData] = useState([]);
 
-  console.log(data);
+  console.log(datas);
 
   useEffect(() => {
-    fetch("http://localhost:2000/demo")
+    fetch("https://fullstack-playground.vercel.app/data")
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((datas) => setData(datas));
   }, []);
 
   return (
     <div>
       <h1>This is node</h1>
-      {data.map((item, index) => {
+      {/* {data.map((item, index) => {
         return (
           <div key={index}>
             <h2>{item.title}</h2>
-            <p>{item.body}</p>
             <img src={item.img} alt="fake" />
           </div>
-        );
-      })}
+        ); */}
+      {/* })} */}
     </div>
   );
 };

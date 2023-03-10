@@ -58,14 +58,7 @@ const data = [
     id: 1,
     title: "Lorem ipsum dolor sit amet",
     body: "this is test",
-    img: images[0],
-  },
-  {
-    userId: 2,
-    id: 2,
-    title: "Lorem ipsum dolor sit amet",
-    body: "this is another test",
-    img: images[1],
+    img: images[3],
   },
 ];
 
