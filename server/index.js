@@ -11,7 +11,7 @@ import todoRouter from "./src/pages/todo.js";
 const app = express();
 
 app.use(bodyParser.json()); // to use body object in requests
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 2001;
 dotenv.config();
 
 app.use(morgan("dev"));
