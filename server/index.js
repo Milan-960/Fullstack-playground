@@ -69,7 +69,7 @@ app.get("/", (req, res) => {
 });
 
 // Route for the data
-app.get("/data", (req, res) => {
+app.get("/test", (req, res) => {
   res.send(data);
 });
 
