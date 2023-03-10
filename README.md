@@ -28,6 +28,9 @@
  ┗ 📜package.json
 ```
 
+<img align="right" src="public/client.png" width="100%"/>&nbsp;
+&nbsp;
+
 # Server Tree
 
 ```
@@ -46,3 +49,8 @@
 ┣ 📜package.json
 ┗ 📜vercel.json
 ```
+
+<img align="right" src="public/server.png" width="100%"/>&nbsp;
+&nbsp;
+
+## FullStack Playground built and maintained by [Milan Sachani &#x1F49C;](https://milansachani.dev)
