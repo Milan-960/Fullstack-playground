@@ -55,6 +55,7 @@ import swaggerJsDoc from "swagger-jsdoc";
 
 import data from "./src/data.js";
 import img from "./src/img.js";
+import lang from "./src/lan.js";
 
 import demoRouter from "./src/Routes/demo.js"; // assuming that your postRouter file is named postRouter.js
 
@@ -132,6 +133,9 @@ app.use("/demo", demoRouter);
 
 // Route for the images we have defined /img patch in img.js
 app.use("/img", img);
+
+// Route for the languages we have defined /lan patch in lan.js
+app.use("/lang", lang);
 
 // Start the server
 app.listen(PORT, () => {
