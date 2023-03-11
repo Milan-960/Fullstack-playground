@@ -8,8 +8,8 @@ function App() {
   const { t } = useTranslation();
   return (
     <div className="App">
-      <Test />
       <LanguageSwitcher />
+      <Test />
       <div>
         <h1>{t("hello")}</h1>
         <p>{t("world")}</p>
