@@ -14,6 +14,7 @@ function App() {
         <h1>{t("hello")}</h1>
         <p>{t("world")}</p>
         <p>{t("navbar.home")}</p>
+        <p>{t("navbar.about")}</p>
       </div>
     </div>
   );

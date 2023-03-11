@@ -1,9 +1,9 @@
 export const FR = {
   navbar: {
-    home: "Inicio",
-    about: "Sobre mi",
-    projects: "Proyectos",
-    contact: "Contacto",
+    home: "about mi",
+    about: "about mi",
+    projects: "projects",
+    contact: "contact",
     blogs: "blogs",
   },
 };
