@@ -11,7 +11,8 @@ function App() {
       <LanguageSwitcher />
       <Test />
       <div>
-        <h1>{t("hello")}</h1>
+        <h3>This Trans is coming from server and local</h3>
+        <p>{t("hello")}</p>
         <p>{t("world")}</p>
         <p>{t("navbar.home")}</p>
         <p>{t("navbar.about")}</p>
