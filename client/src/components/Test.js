@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export const Test = () => {
+  const { t } = useTranslation();
+
   const [data, setData] = useState([]);
 
   console.log(data);
@@ -18,7 +21,7 @@ export const Test = () => {
         {data.map((item, index) => {
           return (
             <div key={index} className="img-map">
-              <h2>{item.title}</h2>
+              <p>{t(item.title)}</p>
               <img src={item.img} alt="fake" />
             </div>
           );
