@@ -8,10 +8,13 @@ export const Test = () => {
 
   console.log(data);
 
+  // Making setTimeout for redusing
   useEffect(() => {
-    fetch("https://fullstack-playground.vercel.app/demo")
-      .then((res) => res.json())
-      .then((data) => setData(data));
+    setTimeout(() => {
+      fetch("https://fullstack-playground.vercel.app/demo")
+        .then((res) => res.json())
+        .then((data) => setData(data));
+    }, 1000);
   }, []);
 
   return (
