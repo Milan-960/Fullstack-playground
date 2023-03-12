@@ -36,16 +36,36 @@ const API = "https://nodejs-swagger-api.vercel.app/posts";
 //   });
 // };
 
-export const fetchPosts = async () => {
-  try {
-    const response = await axios.get(API);
-    const projects = response.data;
-    // handle success
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("projects", projects);
-    return projects;
-  } catch (error) {
-    // handle error
-    throw error;
-  }
+//* this is with async and Promises
+// export const fetchPosts = async () => {
+//   try {
+//     const response = await axios.get(API);
+//     const projects = response.data;
+//     // handle success
+//     await new Promise((resolve) => setTimeout(resolve, 1000));
+//     console.log("projects", projects);
+//     return projects;
+//   } catch (error) {
+//     // handle error
+//     throw error;
+//   }
+// };
+
+//* this is with async and Promises Resolved and pending!
+
+export const fetchPosts = () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(API)
+      .then((response) => {
+        setTimeout(() => {
+          const projects = response.data;
+          console.log("projects", projects);
+          resolve(projects);
+        }, 1000);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 };
